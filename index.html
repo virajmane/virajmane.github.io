@@ -1,207 +1,2149 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Viraj Mane Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Press Start 2P', cursive;
-            background-color: #000;
-            color: #fff;
-            margin: 0;
-            padding: 0;
-            scroll-behavior: smooth;
-        }
-        header {
-            background-color: #111;
-            padding: 20px;
-            text-align: center;
-        }
-        nav a {
-            margin: 0 15px;
-            text-decoration: none;
-            color: #fff;
-            transition: color 0.3s;
-        }
-        nav a:hover {
-            color: #00ff00; /* Neon green hover effect */
-        }
-        .hero {
-            text-align: center;
-            margin: 50px 0;
-        }
-        .hero h1 {
-            color: #f54291; /* Bright neon pink */
-            text-shadow: 0px 0px 8px #f54291;
-            font-size: 3em;
-        }
-        section {
-            padding: 50px;
-        }
-        footer {
-            background-color: #111;
-            text-align: center;
-            padding: 20px;
-        }
-        .skills {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 20px;
-            text-align: center;
-        }
-        .skills div {
-            background-color: #333;
-            padding: 20px;
-            border-radius: 10px;
-            transition: transform 0.3s ease;
-        }
-        .skills div:hover {
-            transform: scale(1.1);
-            background-color: #444;
-        }
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-        .project-card {
-            background-color: #222;
-            padding: 20px;
-            border-radius: 10px;
-            transition: background-color 0.3s ease;
-        }
-        .project-card:hover {
-            background-color: #444;
-        }
-        .experience-timeline {
-            list-style: none;
-            padding: 0;
-        }
-        .experience-timeline li {
-            background-color: #333;
-            margin: 20px 0;
-            padding: 20px;
-            border-radius: 10px;
-        }
-        .experience-timeline li h3 {
-            margin-top: 0;
-            color: #00ff00;
-        }
-        .experience-timeline li p {
-            color: #bbb;
-        }
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            font-size: 1.2em;
-        }
-        .contact-info a {
-            text-decoration: none;
-            color: #fff;
-        }
-        .contact-info a:hover {
-            color: #00ff00;
-        }
-        /* Fun Message */
-        .fun-message {
-            color: #ff00ff;
-            text-align: center;
-            margin-top: 20px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Viraj Mane | Retro Gaming Portfolio</title>
+  <style>
+    /* Base Styles and Variables */
+    :root {
+      /* Default Theme: NES */
+      --bg-color: #000000;
+      --bg-secondary: #0000aa;
+      --text-color: #ffffff;
+      --primary-color: #ff0000;
+      --secondary-color: #ffff00;
+      --accent-color: #00ff00;
+      --border-color: #ffffff;
+      --font-family: 'Press Start 2P', monospace;
+      --box-shadow: 0 0 0 2px #ffffff;
+      --pixel-size: 2px;
+    }
+
+    /* Theme: Arcade */
+    .theme-arcade {
+      --bg-color: #000000;
+      --bg-secondary: #220055;
+      --text-color: #ffffff;
+      --primary-color: #ff00ff;
+      --secondary-color: #00ffff;
+      --accent-color: #ffaa00;
+      --border-color: #00ffff;
+      --box-shadow: 0 0 10px #ff00ff;
+    }
+
+    /* Theme: Space Invaders */
+    .theme-space {
+      --bg-color: #000000;
+      --bg-secondary: #001122;
+      --text-color: #ffffff;
+      --primary-color: #33ff33;
+      --secondary-color: #ffffff;
+      --accent-color: #ff3333;
+      --border-color: #33ff33;
+      --box-shadow: 0 0 8px #33ff33;
+    }
+
+    /* Theme: RPG */
+    .theme-rpg {
+      --bg-color: #2a2a2a;
+      --bg-secondary: #1a2f1a;
+      --text-color: #e0e0e0;
+      --primary-color: #ffd700;
+      --secondary-color: #c0c0c0;
+      --accent-color: #32cd32;
+      --border-color: #8b4513;
+      --box-shadow: 0 0 0 4px #8b4513;
+      --font-family: 'VT323', monospace;
+    }
+
+    /* Theme: Game Boy */
+    .theme-gameboy {
+      --bg-color: #9bbc0f;
+      --bg-secondary: #8bac0f;
+      --text-color: #0f380f;
+      --primary-color: #306230;
+      --secondary-color: #0f380f;
+      --accent-color: #8bac0f;
+      --border-color: #0f380f;
+      --box-shadow: 0 0 0 3px #0f380f;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    @font-face {
+      font-family: 'Press Start 2P';
+      src: url('https://fonts.gstatic.com/s/pressstart2p/v14/e3t4euO8T-267oIAQAu6jDQyK3nVivM.woff2') format('woff2');
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'VT323';
+      src: url('https://fonts.gstatic.com/s/vt323/v17/pxiKyp0ihIEF2isfFJU.woff2') format('woff2');
+      font-display: swap;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: var(--font-family);
+      line-height: 1.6;
+      overflow-x: hidden;
+      transition: background-color 0.5s ease;
+      image-rendering: pixelated;
+    }
+
+    /* Typography */
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      color: var(--primary-color);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      text-shadow: 2px 2px 0 var(--secondary-color);
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      position: relative;
+      display: inline-block;
+      margin-bottom: 2rem;
+      text-shadow: 2px 2px 0 var(--bg-color);
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -10px;
+      width: 100%;
+      height: 4px;
+      background: var(--primary-color);
+      box-shadow: 0 2px 0 var(--secondary-color);
+    }
+
+    h3 {
+      font-size: 1.2rem;
+      color: var(--secondary-color);
+    }
+
+    p {
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+      line-height: 1.8;
+    }
+
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    a:hover {
+      color: var(--primary-color);
+    }
+
+    a:hover::after {
+      content: '►';
+      position: absolute;
+      left: -1.2em;
+    }
+
+    /* Layout */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    section {
+      padding: 4rem 0;
+      position: relative;
+      border-bottom: 4px solid var(--border-color);
+    }
+
+    .pixel-corners {
+      position: relative;
+    }
+
+    .pixel-corners::before,
+    .pixel-corners::after {
+      content: '';
+      position: absolute;
+      width: var(--pixel-size);
+      height: var(--pixel-size);
+      background-color: var(--border-color);
+    }
+
+    .pixel-corners::before {
+      top: 0;
+      left: 0;
+      box-shadow: 
+        var(--pixel-size) 0 0 0 var(--border-color),
+        0 var(--pixel-size) 0 0 var(--border-color),
+        calc(100% - var(--pixel-size)) 0 0 0 var(--border-color),
+        0 calc(100% - var(--pixel-size)) 0 0 var(--border-color);
+    }
+
+    .pixel-corners::after {
+      bottom: 0;
+      right: 0;
+      box-shadow: 
+        calc(-1 * var(--pixel-size)) 0 0 0 var(--border-color),
+        0 calc(-1 * var(--pixel-size)) 0 0 var(--border-color),
+        calc(-100% + var(--pixel-size)) 0 0 0 var(--border-color),
+        0 calc(-100% + var(--pixel-size)) 0 0 var(--border-color);
+    }
+
+    .flex {
+      display: flex;
+    }
+
+    .flex-col {
+      flex-direction: column;
+    }
+
+    .items-center {
+      align-items: center;
+    }
+
+    .justify-between {
+      justify-content: space-between;
+    }
+
+    .grid {
+      display: grid;
+      gap: 2rem;
+    }
+
+    .grid-cols-1 {
+      grid-template-columns: 1fr;
+    }
+
+    .grid-cols-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grid-cols-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .grid-cols-4 {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    /* Game UI Elements */
+    .retro-btn {
+      background-color: var(--primary-color);
+      color: var(--text-color);
+      border: none;
+      padding: 0.8rem 1.5rem;
+      font-family: var(--font-family);
+      font-size: 0.9rem;
+      cursor: pointer;
+      position: relative;
+      text-transform: uppercase;
+      transition: all 0.2s ease;
+      box-shadow: 4px 4px 0 var(--border-color);
+    }
+
+    .retro-btn:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0 var(--border-color);
+    }
+
+    .retro-btn:active {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0 var(--border-color);
+    }
+
+    .retro-box {
+      background-color: var(--bg-secondary);
+      border: 4px solid var(--border-color);
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    .retro-box::before {
+      content: '';
+      position: absolute;
+      top: -4px;
+      left: -4px;
+      right: -4px;
+      bottom: -4px;
+      z-index: -1;
+      background-color: var(--primary-color);
+      transform: translate(8px, 8px);
+    }
+
+    /* Header & Navigation */
+    header {
+      padding: 1rem 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background-color: var(--bg-color);
+      border-bottom: 4px solid var(--border-color);
+      transition: all 0.3s ease;
+    }
+
+    header.scrolled {
+      padding: 0.5rem 0;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      text-shadow: 2px 2px 0 var(--secondary-color);
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-pixel {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background-color: var(--primary-color);
+      margin-right: 8px;
+      box-shadow: 2px 2px 0 var(--secondary-color);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+    }
+
+    .nav-links li a {
+      color: var(--text-color);
+      font-weight: 400;
+      position: relative;
+      padding: 0.5rem 0;
+      font-size: 0.8rem;
+    }
+
+    .nav-links li a.active {
+      color: var(--primary-color);
+    }
+
+    .nav-links li a.active::before {
+      content: '►';
+      position: absolute;
+      left: -1.2em;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--text-color);
+    }
+
+    /* Theme Switcher */
+    .theme-switcher {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .theme-btn {
+      width: 40px;
+      height: 40px;
+      border: 3px solid var(--border-color);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .theme-btn:hover {
+      transform: scale(1.1);
+    }
+
+    .theme-btn.active {
+      box-shadow: 0 0 0 2px var(--text-color), 0 0 0 4px var(--primary-color);
+    }
+
+    .theme-nes {
+      background-color: #ff0000;
+    }
+
+    .theme-arcade {
+      background-color: #ff00ff;
+    }
+
+    .theme-space {
+      background-color: #33ff33;
+    }
+
+    .theme-rpg {
+      background-color: #ffd700;
+    }
+
+    .theme-gameboy {
+      background-color: #9bbc0f;
+    }
+
+    /* Game Stats UI */
+    .game-stats {
+      position: fixed;
+      top: 80px;
+      left: 20px;
+      background-color: var(--bg-secondary);
+      border: 4px solid var(--border-color);
+      padding: 1rem;
+      z-index: 100;
+      font-size: 0.8rem;
+      min-width: 200px;
+    }
+
+    .stat-item {
+      margin-bottom: 0.5rem;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .stat-label {
+      color: var(--secondary-color);
+    }
+
+    .stat-value {
+      color: var(--primary-color);
+    }
+
+    .xp-bar {
+      height: 10px;
+      background-color: var(--bg-color);
+      border: 2px solid var(--border-color);
+      margin-top: 0.5rem;
+    }
+
+    .xp-progress {
+      height: 100%;
+      background-color: var(--primary-color);
+      width: 0%;
+      transition: width 0.5s ease;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding-top: 60px;
+      background-color: var(--bg-color);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      animation: textGlitch 5s infinite;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .pixel-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      opacity: 0.2;
+      background-size: 20px 20px;
+      background-image: 
+        linear-gradient(to right, var(--border-color) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--border-color) 1px, transparent 1px);
+    }
+
+    /* About Section */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .about-image {
+      position: relative;
+      border: 4px solid var(--border-color);
+      overflow: hidden;
+      box-shadow: 8px 8px 0 var(--primary-color);
+    }
+
+    .about-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      image-rendering: pixelated;
+    }
+
+    .about-content h2 {
+      margin-bottom: 1.5rem;
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .stat-card {
+      background-color: var(--bg-secondary);
+      padding: 1.5rem;
+      border: 4px solid var(--border-color);
+      text-align: center;
+      position: relative;
+    }
+
+    .stat-card::before {
+      content: '';
+      position: absolute;
+      top: -4px;
+      left: -4px;
+      right: -4px;
+      bottom: -4px;
+      z-index: -1;
+      background-color: var(--secondary-color);
+      transform: translate(8px, 8px);
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-title {
+      font-size: 0.8rem;
+      color: var(--text-color);
+      text-transform: uppercase;
+    }
+
+    /* Experience Section */
+    .experience-container {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .experience-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 4px;
+      background-color: var(--border-color);
+      transform: translateX(-50%);
+    }
+
+    .experience-item {
+      position: relative;
+      margin-bottom: 3rem;
+    }
+
+    .experience-content {
+      background-color: var(--bg-secondary);
+      border: 4px solid var(--border-color);
+      padding: 1.5rem;
+      position: relative;
+      width: calc(50% - 30px);
+      box-shadow: 8px 8px 0 var(--primary-color);
+    }
+
+    .experience-item:nth-child(odd) .experience-content {
+      margin-left: auto;
+    }
+
+    .experience-item:nth-child(even) .experience-content {
+      margin-right: auto;
+    }
+
+    .experience-date {
+      display: inline-block;
+      padding: 0.3rem 0.8rem;
+      background-color: var(--primary-color);
+      color: var(--text-color);
+      font-size: 0.8rem;
+      margin-bottom: 0.5rem;
+      border: 2px solid var(--border-color);
+    }
+
+    .experience-title {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: var(--secondary-color);
+    }
+
+    .experience-description {
+      font-size: 0.8rem;
+    }
+
+    .experience-description ul {
+      list-style-type: none;
+      padding-left: 1rem;
+    }
+
+    .experience-description li {
+      margin-bottom: 0.5rem;
+      position: relative;
+    }
+
+    .experience-description li::before {
+      content: '►';
+      position: absolute;
+      left: -1rem;
+      color: var(--accent-color);
+    }
+
+    .experience-icon {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background-color: var(--primary-color);
+      border: 4px solid var(--border-color);
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      color: var(--text-color);
+    }
+
+    /* Skills Section */
+    .skills-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .skill-category {
+      background-color: var(--bg-secondary);
+      border: 4px solid var(--border-color);
+      padding: 1.5rem;
+      position: relative;
+    }
+
+    .skill-category::before {
+      content: '';
+      position: absolute;
+      top: -4px;
+      left: -4px;
+      right: -4px;
+      bottom: -4px;
+      z-index: -1;
+      background-color: var(--secondary-color);
+      transform: translate(8px, 8px);
+    }
+
+    .skill-category h3 {
+      margin-bottom: 1rem;
+      color: var(--primary-color);
+      text-transform: uppercase;
+      font-size: 1rem;
+    }
+
+    .skill-item {
+      margin-bottom: 1rem;
+    }
+
+    .skill-name {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+      font-size: 0.8rem;
+    }
+
+    .skill-bar {
+      height: 10px;
+      background-color: var(--bg-color);
+      border: 2px solid var(--border-color);
+    }
+
+    .skill-progress {
+      height: 100%;
+      background-color: var(--primary-color);
+      width: 0;
+      transition: width 1s ease;
+    }
+
+    /* Projects Section */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      background-color: var(--bg-secondary);
+      border: 4px solid var(--border-color);
+      overflow: hidden;
+      position: relative;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: -4px;
+      left: -4px;
+      right: -4px;
+      bottom: -4px;
+      z-index: -1;
+      background-color: var(--accent-color);
+      transform: translate(8px, 8px);
+    }
+
+    .project-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-bottom: 4px solid var(--border-color);
+      image-rendering: pixelated;
+    }
+
+    .project-content {
+      padding: 1.5rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-title {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary-color);
+    }
+
+    .project-description {
+      font-size: 0.8rem;
+      margin-bottom: 1rem;
+      flex-grow: 1;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .project-tag {
+      padding: 0.2rem 0.5rem;
+      background-color: var(--bg-color);
+      border: 2px solid var(--border-color);
+      font-size: 0.7rem;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .project-link {
+      padding: 0.5rem 1rem;
+      background-color: var(--primary-color);
+      color: var(--text-color);
+      font-size: 0.8rem;
+      border: 2px solid var(--border-color);
+      transition: all 0.2s ease;
+    }
+
+    .project-link:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 3px 0 var(--border-color);
+    }
+
+    /* Certifications Section */
+    .certifications-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .certification-card {
+      background-color: var(--bg-secondary);
+      border: 4px solid var(--border-color);
+      padding: 1.5rem;
+      position: relative;
+    }
+
+    .certification-card::before {
+      content: '';
+      position: absolute;
+      top: -4px;
+      left: -4px;
+      right: -4px;
+      bottom: -4px;
+      z-index: -1;
+      background-color: var(--secondary-color);
+      transform: translate(8px, 8px);
+    }
+
+    .certification-title {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary-color);
+    }
+
+    .certification-issuer {
+      font-size: 0.8rem;
+      color: var(--text-color);
+      margin-bottom: 0.5rem;
+    }
+
+    .certification-icon {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 1.5rem;
+      color: var(--accent-color);
+    }
+
+    /* Achievements Section */
+    .achievements-list {
+      list-style: none;
+    }
+
+    .achievement-item {
+      background-color: var(--bg-secondary);
+      border: 4px solid var(--border-color);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding-left: 3rem;
+    }
+
+    .achievement-item::before {
+      content: '★';
+      position: absolute;
+      left: 1rem;
+      top: 1.5rem;
+      font-size: 1.5rem;
+      color: var(--accent-color);
+    }
+
+    /* Contact Section */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .contact-icon {
+      width: 40px;
+      height: 40px;
+      background-color: var(--primary-color);
+      color: var(--text-color);
+      border: 3px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+
+    .contact-text {
+      font-size: 0.9rem;
+    }
+
+    .contact-form {
+      background-color: var(--bg-secondary);
+      border: 4px solid var(--border-color);
+      padding: 2rem;
+      position: relative;
+    }
+
+    .contact-form::before {
+      content: '';
+      position: absolute;
+      top: -4px;
+      left: -4px;
+      right: -4px;
+      bottom: -4px;
+      z-index: -1;
+      background-color: var(--accent-color);
+      transform: translate(8px, 8px);
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 400;
+      font-size: 0.9rem;
+      color: var(--secondary-color);
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 0.8rem;
+      background-color: var(--bg-color);
+      border: 3px solid var(--border-color);
+      color: var(--text-color);
+      font-family: var(--font-family);
+      font-size: 0.9rem;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--primary-color);
+    }
+
+    textarea.form-control {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--bg-secondary);
+      color: var(--text-color);
+      padding: 3rem 0;
+      border-top: 4px solid var(--border-color);
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      text-shadow: 2px 2px 0 var(--secondary-color);
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .social-link {
+      width: 40px;
+      height: 40px;
+      background-color: var(--primary-color);
+      color: var(--text-color);
+      border: 3px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+    }
+
+    .social-link:hover {
+      transform: translateY(-5px);
+      background-color: var(--accent-color);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      margin-top: 2rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    /* Game Elements */
+    .game-popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      background-color: var(--bg-secondary);
+      border: 4px solid var(--border-color);
+      padding: 2rem;
+      z-index: 1001;
+      text-align: center;
+      transition: transform 0.3s ease;
+      max-width: 90%;
+      width: 400px;
+    }
+
+    .game-popup.active {
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .game-popup::before {
+      content: '';
+      position: absolute;
+      top: -4px;
+      left: -4px;
+      right: -4px;
+      bottom: -4px;
+      z-index: -1;
+      background-color: var(--primary-color);
+      transform: translate(8px, 8px);
+    }
+
+    .game-popup-title {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--primary-color);
+    }
+
+    .game-popup-content {
+      margin-bottom: 1.5rem;
+    }
+
+    .game-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .game-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .achievement-notification {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background-color: var(--bg-secondary);
+      border: 4px solid var(--border-color);
+      padding: 1rem;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      transform: translateY(100px);
+      transition: transform 0.3s ease;
+      max-width: 300px;
+    }
+
+    .achievement-notification.active {
+      transform: translateY(0);
+    }
+
+    .achievement-notification::before {
+      content: '';
+      position: absolute;
+      top: -4px;
+      left: -4px;
+      right: -4px;
+      bottom: -4px;
+      z-index: -1;
+      background-color: var(--accent-color);
+      transform: translate(8px, 8px);
+    }
+
+    .achievement-icon {
+      font-size: 1.5rem;
+      color: var(--primary-color);
+    }
+
+    .achievement-info h4 {
+      font-size: 0.9rem;
+      margin-bottom: 0.2rem;
+      color: var(--primary-color);
+    }
+
+    .achievement-info p {
+      font-size: 0.7rem;
+      margin-bottom: 0;
+    }
+
+    /* Mini-game */
+    .mini-game {
+      width: 100%;
+      height: 200px;
+      background-color: var(--bg-color);
+      border: 4px solid var(--border-color);
+      position: relative;
+      overflow: hidden;
+      margin-top: 2rem;
+    }
+
+    .game-character {
+      width: 30px;
+      height: 30px;
+      background-color: var(--primary-color);
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .game-obstacle {
+      width: 20px;
+      height: 20px;
+      background-color: var(--accent-color);
+      position: absolute;
+      top: -20px;
+    }
+
+    /* Animations */
+    @keyframes textGlitch {
+      0% {
+        text-shadow: 2px 2px 0 var(--secondary-color);
+      }
+      2% {
+        text-shadow: -2px -2px 0 var(--accent-color);
+      }
+      4% {
+        text-shadow: 2px -2px 0 var(--secondary-color);
+      }
+      6% {
+        text-shadow: -2px 2px 0 var(--accent-color);
+      }
+      8% {
+        text-shadow: 2px 2px 0 var(--secondary-color);
+      }
+      100% {
+        text-shadow: 2px 2px 0 var(--secondary-color);
+      }
+    }
+
+    @keyframes pixelate {
+      0% {
+        filter: none;
+      }
+      50% {
+        filter: blur(1px);
+      }
+      100% {
+        filter: none;
+      }
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 992px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .experience-container::before {
+        left: 20px;
+      }
+
+      .experience-content {
+        width: calc(100% - 50px);
+        margin-left: 50px !important;
+      }
+
+      .experience-icon {
+        left: 20px;
+        transform: none;
+      }
+
+      .game-stats {
+        position: static;
+        margin-bottom: 2rem;
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      h2 {
+        font-size: 1.3rem;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background-color: var(--bg-secondary);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        border-left: 4px solid var(--border-color);
+      }
+
+      .nav-links.active {
+        right: 0;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .close-menu {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+
+      .grid-cols-2,
+      .grid-cols-3 {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .theme-switcher {
+        flex-direction: row;
+        bottom: 20px;
+        right: 50%;
+        transform: translateX(50%);
+      }
+    }
+
+    @media (max-width: 576px) {
+      section {
+        padding: 3rem 0;
+      }
+
+      .hero {
+        height: auto;
+        min-height: 100vh;
+        padding: 6rem 0 3rem;
+      }
+
+      .retro-btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.8rem;
+      }
+
+      .hero-cta {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .stat-card {
+        padding: 1rem;
+      }
+
+      .stat-number {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body>
-
-    <!-- Header with Navigation -->
-    <header>
-        <nav>
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#experience">Experience</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero" id="about">
-        <h1>VIRAJ MANE</h1>
-        <p>Software Engineer | Backend Developer | AI Enthusiast</p>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills">
-        <h2 style="text-align: center; color: #f54291;">Skills</h2>
-        <div class="skills">
-            <div>Python</div>
-            <div>C++</div>
-            <div>C</div>
-            <div>Flask</div>
-            <div>Docker</div>
-            <div>CI/CD</div>
-            <div>Azure</div>
-            <div>SQL</div>
-            <div>MongoDB</div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects">
-        <h2 style="text-align: center; color: #f54291;">Projects</h2>
-        <div class="projects">
-            <div class="project-card">
-                <h3>Clothing Store Chatbot</h3>
-                <p>Built a chatbot using GPT-2 to handle customer queries. Integrated with Flask for frontend.</p>
-                <a href="https://github.com/virajmane" target="_blank" style="color:#00ff00;">View on GitHub</a>
-            </div>
-            <div class="project-card">
-                <h3>Advanced URL Shortener</h3>
-                <p>Created a URL shortener with analytics using Flask and Firebase Realtime Database.</p>
-                <a href="https://github.com/virajmane" target="_blank" style="color:#00ff00;">View on GitHub</a>
-            </div>
-            <div class="project-card">
-                <h3>Telegram Bots</h3>
-                <p>Developed bots for live cricket scores and OCR using Python and APIs.</p>
-                <a href="https://github.com/virajmane" target="_blank" style="color:#00ff00;">View on GitHub</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience">
-        <h2 style="text-align: center; color: #f54291;">Experience</h2>
-        <ul class="experience-timeline">
-            <li>
-                <h3>Software Engineer - Accenture</h3>
-                <p>Sept 2022 - Present</p>
-                <p>Worked on backend development, improved code coverage, tested APIs, and managed repositories using Git and Azure DevOps. Fixed code smells, bugs, and vulnerabilities using SonarQube. Developed a Clothing Store Chatbot using GPT-2 and Flask.</p>
-            </li>
-            <li>
-                <h3>Google Cloud Platform - Program</h3>
-                <p>Sept 2020 - Oct 2020</p>
-                <p>Deployed applications using Kubernetes, managed cloud infrastructure, and utilized machine learning APIs.</p>
-            </li>
+<body class="theme-nes">
+  <!-- Header -->
+  <header>
+    <div class="container flex justify-between items-center">
+      <a href="#" class="logo"><span class="logo-pixel"></span>VM</a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#home" class="active">Start</a></li>
+          <li><a href="#about">Profile</a></li>
+          <li><a href="#experience">Quests</a></li>
+          <li><a href="#skills">Stats</a></li>
+          <li><a href="#projects">Achievements</a></li>
+          <li><a href="#certifications">Items</a></li>
+          <li><a href="#contact">Message</a></li>
+          <li class="close-menu">X</li>
         </ul>
-    </section>
+      </nav>
+      <button class="mobile-menu-btn">
+        ≡
+      </button>
+    </div>
+  </header>
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2 style="text-align: center; color: #f54291;">Contact</h2>
-        <div class="contact-info">
-            <a href="">Email Me</a>
-            <a href="https://linkedin.com/in/virajmane" target="_blank">LinkedIn</a>
-            <a href="https://github.com/virajmane" target="_blank">GitHub</a>
+  <!-- Game Stats -->
+  <div class="game-stats">
+    <div class="stat-item">
+      <span class="stat-label">LEVEL:</span>
+      <span class="stat-value" id="player-level">1</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-label">XP:</span>
+      <span class="stat-value"><span id="player-xp">0</span>/<span id="player-max-xp">100</span></span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-label">SCORE:</span>
+      <span class="stat-value" id="player-score">0</span>
+    </div>
+    <div class="xp-bar">
+      <div class="xp-progress" id="xp-progress-bar"></div>
+    </div>
+  </div>
+
+  <!-- Theme Switcher -->
+  <div class="theme-switcher">
+    <div class="theme-btn theme-nes active" data-theme="nes" title="NES Theme"></div>
+    <div class="theme-btn theme-arcade" data-theme="arcade" title="Arcade Theme"></div>
+    <div class="theme-btn theme-space" data-theme="space" title="Space Invaders Theme"></div>
+    <div class="theme-btn theme-rpg" data-theme="rpg" title="RPG Theme"></div>
+    <div class="theme-btn theme-gameboy" data-theme="gameboy" title="Game Boy Theme"></div>
+  </div>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="pixel-bg"></div>
+    <div class="container">
+      <div class="hero-content">
+        <h1>VIRAJ MANE</h1>
+        <p>SOFTWARE ENGINEER - PRESS START TO EXPLORE</p>
+        <div class="hero-cta">
+          <button class="retro-btn" id="start-game">PRESS START</button>
+          <button class="retro-btn" id="view-achievements">ACHIEVEMENTS</button>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 Viraj Mane</p>
-        <p class="fun-message">Not gonna lie, made using ChatGPT in less than 5 mins!</p>
-    </footer>
+  <!-- About Section -->
+  <section id="about" class="about">
+    <div class="container">
+      <h2>CHARACTER PROFILE</h2>
+      <div class="about-grid">
+        <div class="about-image">
+          <img src="/placeholder.svg?height=400&width=300" alt="Viraj Mane" id="profile-image">
+        </div>
+        <div class="about-content">
+          <div class="retro-box">
+            <h3>PLAYER INFO</h3>
+            <p>Software Engineer with 2 years of backend development experience in Python and .NET, skilled in Development, Automation and Testing. Known for optimizing workflows, improving code quality, and enhancing productivity through automation. Strong in Agile methodologies and cross-team collaboration.</p>
+          </div>
+          
+          <div class="about-stats">
+            <div class="stat-card">
+              <div class="stat-number" id="experience-count">0</div>
+              <div class="stat-title">YEARS EXP</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number" id="project-count">0</div>
+              <div class="stat-title">PROJECTS</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number" id="cert-count">0</div>
+              <div class="stat-title">POWER-UPS</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- Experience Section -->
+  <section id="experience" class="experience">
+    <div class="container">
+      <h2>COMPLETED QUESTS</h2>
+      <div class="experience-container">
+        <div class="experience-item">
+          <div class="experience-content">
+            <div class="experience-date">DEC 2022 - PRESENT</div>
+            <h3 class="experience-title">SOFTWARE ENGINEER - ACCENTURE</h3>
+            <div class="experience-description">
+              <ul>
+                <li>AI & Generative AI Integration: Developed backend solutions using Flask and enhanced them with Generative AI capabilities.</li>
+                <li>Business Intelligence & Data Analysis: Worked with BI tools to create prototypes for generating actionable insights.</li>
+                <li>Backend Development: Designed and developed scalable web API applications.</li>
+                <li>Python Automation: Automated repetitive tasks like data processing and visualization.</li>
+                <li>API Engineering & Testing: Developed and tested APIs using Swagger and Postman.</li>
+                <li>Event-Driven Solutions: Implemented Azure Functions, Event Hubs, and Service Bus.</li>
+                <li>Code Quality & Security: Increased test coverage from 60% to 95%.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="experience-icon">!</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="skills">
+    <div class="container">
+      <h2>CHARACTER STATS</h2>
+      <div class="skills-container">
+        <div class="skill-category">
+          <h3>LANGUAGES</h3>
+          <div class="skill-item">
+            <div class="skill-name">
+              <span>PYTHON</span>
+              <span>95%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" data-width="95"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">
+              <span>SQL</span>
+              <span>85%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" data-width="85"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">
+              <span>JAVASCRIPT</span>
+              <span>75%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" data-width="75"></div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="skill-category">
+          <h3>AI/ML FRAMEWORKS</h3>
+          <div class="skill-item">
+            <div class="skill-name">
+              <span>PYTORCH</span>
+              <span>80%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" data-width="80"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">
+              <span>HUGGING FACE</span>
+              <span>85%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" data-width="85"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">
+              <span>OPENAI</span>
+              <span>90%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" data-width="90"></div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="skill-category">
+          <h3>CLOUD & PLATFORMS</h3>
+          <div class="skill-item">
+            <div class="skill-name">
+              <span>AWS</span>
+              <span>80%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" data-width="80"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">
+              <span>AZURE</span>
+              <span>90%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" data-width="90"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">
+              <span>DOCKER</span>
+              <span>85%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" data-width="85"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="mini-game" id="skill-game">
+        <div class="game-character" id="game-player"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="projects">
+    <div class="container">
+      <h2>COMPLETED ACHIEVEMENTS</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <img src="/placeholder.svg?height=200&width=300" alt="Project 1" class="project-image">
+          <div class="project-content">
+            <h3 class="project-title">AI-POWERED DOCUMENT ANALYZER</h3>
+            <p class="project-description">Developed an intelligent document processing system using NLP and ML to extract, classify, and analyze information from various document types.</p>
+            <div class="project-tags">
+              <span class="project-tag">PYTHON</span>
+              <span class="project-tag">NLP</span>
+              <span class="project-tag">ML</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link">VIEW</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="project-card">
+          <img src="/placeholder.svg?height=200&width=300" alt="Project 2" class="project-image">
+          <div class="project-content">
+            <h3 class="project-title">AUTOMATED WORKFLOW SYSTEM</h3>
+            <p class="project-description">Built an end-to-end workflow automation platform that reduced manual processing time by 70% and improved accuracy by implementing intelligent validation.</p>
+            <div class="project-tags">
+              <span class="project-tag">PYTHON</span>
+              <span class="project-tag">AZURE</span>
+              <span class="project-tag">LOGIC APPS</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link">VIEW</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="project-card">
+          <img src="/placeholder.svg?height=200&width=300" alt="Project 3" class="project-image">
+          <div class="project-content">
+            <h3 class="project-title">INTELLIGENT CHATBOT PLATFORM</h3>
+            <p class="project-description">Designed and implemented a conversational AI platform using LLMs and RAG techniques to provide context-aware responses for customer support.</p>
+            <div class="project-tags">
+              <span class="project-tag">PYTHON</span>
+              <span class="project-tag">LLM</span>
+              <span class="project-tag">RAG</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link">VIEW</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications Section -->
+  <section id="certifications" class="certifications">
+    <div class="container">
+      <h2>COLLECTED ITEMS</h2>
+      <div class="certifications-grid">
+        <div class="certification-card">
+          <h3 class="certification-title">PROMPT ENGINEERING</h3>
+          <p class="certification-issuer">COURSE COMPLETION</p>
+          <div class="certification-icon">🏆</div>
+        </div>
+        
+        <div class="certification-card">
+          <h3 class="certification-title">AZURE SECURITY ENGINEER ASSOCIATE</h3>
+          <p class="certification-issuer">MICROSOFT</p>
+          <div class="certification-icon">🏆</div>
+        </div>
+        
+        <div class="certification-card">
+          <h3 class="certification-title">AZURE DEVELOPER ASSOCIATE</h3>
+          <p class="certification-issuer">MICROSOFT</p>
+          <div class="certification-icon">🏆</div>
+        </div>
+        
+        <div class="certification-card">
+          <h3 class="certification-title">AZURE & AI FUNDAMENTALS</h3>
+          <p class="certification-issuer">MICROSOFT</p>
+          <div class="certification-icon">🏆</div>
+        </div>
+        
+        <div class="certification-card">
+          <h3 class="certification-title">GOOGLE IT AUTOMATION WITH PYTHON</h3>
+          <p class="certification-issuer">GOOGLE</p>
+          <div class="certification-icon">🏆</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Achievements Section -->
+  <section id="achievements" class="achievements">
+    <div class="container">
+      <h2>BONUS ACHIEVEMENTS</h2>
+      <ul class="achievements-list">
+        <li class="achievement-item">
+          Received recognition for delivering innovative solutions that optimized workplace processes and enhanced overall efficiency.
+        </li>
+        <li class="achievement-item">
+          Ranked 400 globally in TCS Codevita.
+        </li>
+        <li class="achievement-item">
+          3-star rating on Codechef and achieved a gold badge in python on Hackerrank.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2>SEND MESSAGE</h2>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-icon">@</div>
+            <div class="contact-text">
+              <a href="mailto:connectonlinkedin@notadomaingmail.c0m">connectonlinkedin@notadomaingmail.c0m</a>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">☎</div>
+            <div class="contact-text">
+              <a href="tel:+9199999999999">+91 99999999999</a>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">in</div>
+            <div class="contact-text">
+              <a href="https://linkedin.com/in/virajmane" target="_blank">linkedin.com/in/virajmane</a>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">⌂</div>
+            <div class="contact-text">
+              Pune, India
+            </div>
+          </div>
+        </div>
+        
+        <div class="contact-form">
+          <form id="contactForm">
+            <div class="form-group">
+              <label for="name" class="form-label">NAME</label>
+              <input type="text" id="name" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email" class="form-label">EMAIL</label>
+              <input type="email" id="email" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="subject" class="form-label">SUBJECT</label>
+              <input type="text" id="subject" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="message" class="form-label">MESSAGE</label>
+              <textarea id="message" class="form-control" required></textarea>
+            </div>
+            
+            <button type="submit" class="retro-btn">SEND</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">VIRAJ MANE</div>
+        <div class="footer-social">
+          <a href="https://linkedin.com/in/virajmane" target="_blank" class="social-link">in</a>
+          <a href="https://github.com/" target="_blank" class="social-link">gh</a>
+          <a href="https://twitter.com/" target="_blank" class="social-link">tw</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 VIRAJ MANE - ALL RIGHTS RESERVED</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Game Elements -->
+  <div class="game-overlay" id="gameOverlay"></div>
+  
+  <div class="game-popup" id="startGamePopup">
+    <h3 class="game-popup-title">WELCOME PLAYER</h3>
+    <div class="game-popup-content">
+      <p>PRESS START TO BEGIN YOUR ADVENTURE THROUGH VIRAJ'S PORTFOLIO.</p>
+      <p>COLLECT POINTS BY EXPLORING DIFFERENT SECTIONS AND UNLOCK ACHIEVEMENTS!</p>
+    </div>
+    <button class="retro-btn" id="startGameBtn">START GAME</button>
+  </div>
+  
+  <div class="game-popup" id="achievementsPopup">
+    <h3 class="game-popup-title">ACHIEVEMENTS</h3>
+    <div class="game-popup-content" id="achievementsList">
+      <p>No achievements unlocked yet. Keep exploring!</p>
+    </div>
+    <button class="retro-btn" id="closeAchievementsBtn">CLOSE</button>
+  </div>
+  
+  <div class="achievement-notification" id="achievementNotification">
+    <div class="achievement-icon">★</div>
+    <div class="achievement-info">
+      <h4>ACHIEVEMENT UNLOCKED!</h4>
+      <p id="achievementText">You've discovered a secret!</p>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    // DOM Elements
+    const body = document.body;
+    const header = document.querySelector('header');
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-links li a');
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const closeMenuBtn = document.querySelector('.close-menu');
+    const navLinksContainer = document.querySelector('.nav-links');
+    const skillBars = document.querySelectorAll('.skill-progress');
+    const themeBtns = document.querySelectorAll('.theme-btn');
+    const contactForm = document.getElementById('contactForm');
+    const startGameBtn = document.getElementById('start-game');
+    const viewAchievementsBtn = document.getElementById('view-achievements');
+    const gameOverlay = document.getElementById('gameOverlay');
+    const startGamePopup = document.getElementById('startGamePopup');
+    const achievementsPopup = document.getElementById('achievementsPopup');
+    const startGamePopupBtn = document.getElementById('startGameBtn');
+    const closeAchievementsBtn = document.getElementById('closeAchievementsBtn');
+    const achievementNotification = document.getElementById('achievementNotification');
+    const achievementText = document.getElementById('achievementText');
+    const achievementsList = document.getElementById('achievementsList');
+    const experienceCount = document.getElementById('experience-count');
+    const projectCount = document.getElementById('project-count');
+    const certCount = document.getElementById('cert-count');
+    const playerLevel = document.getElementById('player-level');
+    const playerXp = document.getElementById('player-xp');
+    const playerMaxXp = document.getElementById('player-max-xp');
+    const playerScore = document.getElementById('player-score');
+    const xpProgressBar = document.getElementById('xp-progress-bar');
+    const skillGame = document.getElementById('skill-game');
+    const gamePlayer = document.getElementById('game-player');
+    const profileImage = document.getElementById('profile-image');
+
+    // Game Variables
+    let gameStarted = false;
+    let currentTheme = 'nes';
+    let playerStats = {
+      level: 1,
+      xp: 0,
+      maxXp: 100,
+      score: 0
+    };
+    let visitedSections = new Set();
+    let achievements = [
+      { id: 'start_game', title: 'GAME START', description: 'Started your portfolio adventure!', unlocked: false, points: 10 },
+      { id: 'visit_all', title: 'EXPLORER', description: 'Visited all sections of the portfolio!', unlocked: false, points: 50 },
+      { id: 'theme_master', title: 'THEME MASTER', description: 'Tried all available themes!', unlocked: false, points: 30 },
+      { id: 'contact_form', title: 'MESSENGER', description: 'Filled out the contact form!', unlocked: false, points: 25 },
+      { id: 'skill_viewer', title: 'SKILL ANALYST', description: 'Viewed all skill categories!', unlocked: false, points: 20 },
+      { id: 'mini_game', title: 'MINI-GAME PLAYER', description: 'Played the mini skill game!', unlocked: false, points: 15 },
+      { id: 'secret_code', title: 'CODE BREAKER', description: 'Found the secret code!', unlocked: false, points: 100 }
+    ];
+    let triedThemes = new Set();
+    let miniGameActive = false;
+    let obstacles = [];
+    let gameInterval;
+    let secretCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+    let secretCodeProgress = 0;
+
+    // Initialize the game
+    function initGame() {
+      updatePlayerStats();
+      createPixelatedProfile();
+      
+      // Show start game popup
+      startGameBtn.addEventListener('click', () => {
+        showPopup(startGamePopup);
+      });
+      
+      startGamePopupBtn.addEventListener('click', () => {
+        hidePopup(startGamePopup);
+        startGame();
+      });
+      
+      viewAchievementsBtn.addEventListener('click', () => {
+        showAchievementsList();
+        showPopup(achievementsPopup);
+      });
+      
+      closeAchievementsBtn.addEventListener('click', () => {
+        hidePopup(achievementsPopup);
+      });
+      
+      // Setup mini-game
+      skillGame.addEventListener('click', startMiniGame);
+      
+      // Setup secret code (Konami code)
+      document.addEventListener('keydown', checkSecretCode);
+    }
+
+    // Start the game
+    function startGame() {
+      gameStarted = true;
+      unlockAchievement('start_game');
+      addXp(10);
+      addScore(50);
+      showNotification('GAME STARTED!', 'Explore the portfolio to earn points and unlock achievements!');
+    }
+
+    // Update player stats display
+    function updatePlayerStats() {
+      playerLevel.textContent = playerStats.level;
+      playerXp.textContent = playerStats.xp;
+      playerMaxXp.textContent = playerStats.maxXp;
+      playerScore.textContent = playerStats.score;
+      xpProgressBar.style.width = `${(playerStats.xp / playerStats.maxXp) * 100}%`;
+    }
+
+    // Add XP and level up if needed
+    function addXp(amount) {
+      playerStats.xp += amount;
+      
+      if (playerStats.xp >= playerStats.maxXp) {
+        playerStats.level++;
+        playerStats.xp = playerStats.xp - playerStats.maxXp;
+        playerStats.maxXp = Math.floor(playerStats.maxXp * 1.5);
+        
+        showNotification('LEVEL UP!', `You've reached level ${playerStats.level}!`);
+        addScore(playerStats.level * 100);
+      }
+      
+      updatePlayerStats();
+    }
+
+    // Add to score
+    function addScore(amount) {
+      playerStats.score += amount;
+      updatePlayerStats();
+      
+      // Animate score
+      playerScore.style.color = 'var(--accent-color)';
+      setTimeout(() => {
+        playerScore.style.color = 'var(--primary-color)';
+      }, 500);
+    }
+
+    // Show achievement notification
+    function showNotification(title, text) {
+      const notificationTitle = achievementNotification.querySelector('h4');
+      notificationTitle.textContent = title;
+      achievementText.textContent = text;
+      
+      achievementNotification.classList.add('active');
+      
+      setTimeout(() => {
+        achievementNotification.classList.remove('active');
+      }, 3000);
+    }
+
+    // Unlock achievement
+    function unlockAchievement(id) {
+      const achievement = achievements.find(a => a.id === id);
+      if (achievement && !achievement.unlocked) {
+        achievement.unlocked = true;
+        showNotification('ACHIEVEMENT UNLOCKED!', achievement.description);
+        addXp(15);
+        addScore(achievement.points);
+      }
+    }
+
+    // Show achievements list
+    function showAchievementsList() {
+      let html = '';
+      
+      const unlockedAchievements = achievements.filter(a => a.unlocked);
+      const lockedAchievements = achievements.filter(a => !a.unlocked);
+      
+      if (unlockedAchievements.length === 0) {
+        html = '<p>No achievements unlocked yet. Keep exploring!</p>';
+      } else {
+        html = '<div class="achievements-grid">';
+        
+        unlockedAchievements.forEach(achievement => {
+          html += `
+            <div class="achievement-item">
+              <h4>${achievement.title}</h4>
+              <p>${achievement.description}</p>
+              <p>+${achievement.points} POINTS</p>
+            </div>
+          `;
+        });
+        
+        html += '</div>';
+        
+        if (lockedAchievements.length > 0) {
+          html += '<h4 style="margin-top: 20px;">LOCKED ACHIEVEMENTS</h4>';
+          html += '<div class="achievements-grid">';
+          
+          lockedAchievements.forEach(achievement => {
+            html += `
+              <div class="achievement-item" style="opacity: 0.5;">
+                <h4>???</h4>
+                <p>This achievement is still locked!</p>
+              </div>
+            `;
+          });
+          
+          html += '</div>';
+        }
+      }
+      
+      achievementsList.innerHTML = html;
+    }
+
+    // Check if all sections have been visited
+    function checkAllSectionsVisited() {
+      if (visitedSections.size === sections.length) {
+        unlockAchievement('visit_all');
+      }
+    }
+
+    // Check if all themes have been tried
+    function checkAllThemesTried() {
+      if (triedThemes.size === themeBtns.length) {
+        unlockAchievement('theme_master');
+      }
+    }
+
+    // Show popup
+    function showPopup(popup) {
+      gameOverlay.classList.add('active');
+      popup.classList.add('active');
+    }
+
+    // Hide popup
+    function hidePopup(popup) {
+      gameOverlay.classList.remove('active');
+      popup.classList.remove('active');
+    }
+
+    // Create pixelated profile image
+    function createPixelatedProfile() {
+      // In a real implementation, this would use canvas to create a pixelated version
+      // of the profile image. For this demo, we'll just use a placeholder.
+      profileImage.style.filter = 'contrast(1.4) brightness(1.2)';
+      profileImage.style.imageRendering = 'pixelated';
+    }
+
+    // Handle scroll events
+    function handleScroll() {
+      // Header scroll effect
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+      
+      // Animate sections on scroll
+      sections.forEach((section, index) => {
+        const sectionTop = section.getBoundingClientRect().top;
+        
+        // If section is in viewport
+        if (sectionTop < window.innerHeight * 0.75 && sectionTop > -window.innerHeight * 0.25) {
+          // Add section to visited sections if game has started
+          if (gameStarted && !visitedSections.has(index)) {
+            visitedSections.add(index);
+            addXp(10);
+            addScore(25);
+            checkAllSectionsVisited();
+            
+            // Special achievements for specific sections
+            if (section.id === 'skills') {
+              unlockAchievement('skill_viewer');
+            }
+          }
+          
+          // Animate skill bars if in skills section
+          if (section.id === 'skills') {
+            skillBars.forEach(bar => {
+              const width = bar.getAttribute('data-width');
+              bar.style.width = `${width}%`;
+            });
+          }
+        }
+      });
+      
+      // Update active nav link
+      let currentSection = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        if (window.scrollY >= sectionTop - 200) {
+          currentSection = section.getAttribute('id');
+        }
+      });
+      
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${currentSection}`) {
+          link.classList.add('active');
+        }
+      });
+    }
+
+    // Theme switcher
+    themeBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const theme = btn.getAttribute('data-theme');
+        
+        // Remove active class from all buttons
+        themeBtns.forEach(b => b.classList.remove('active'));
+        
+        // Add active class to clicked button
+        btn.classList.add('active');
+        
+        // Remove all theme classes
+        body.classList.remove('theme-nes', 'theme-arcade', 'theme-space', 'theme-rpg', 'theme-gameboy');
+        
+        // Add new theme class
+        if (theme !== 'nes') {
+          body.classList.add(`theme-${theme}`);
+        }
+        
+        currentTheme = theme;
+        
+        // Add to tried themes
+        if (!triedThemes.has(theme)) {
+          triedThemes.add(theme);
+          addXp(5);
+          addScore(10);
+          checkAllThemesTried();
+        }
+      });
+    });
+
+    // Mobile menu toggle
+    function toggleMobileMenu() {
+      navLinksContainer.classList.toggle('active');
+    }
+
+    // Smooth scroll to section
+    function smoothScroll(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      const targetSection = document.querySelector(targetId);
+      
+      window.scrollTo({
+        top: targetSection.offsetTop - 70,
+        behavior: 'smooth'
+      });
+      
+      // Close mobile menu if open
+      if (navLinksContainer.classList.contains('active')) {
+        navLinksContainer.classList.remove('active');
+      }
+    }
+
+    // Handle contact form submission
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      
+      // In a real application, you would send the form data to a server
+      // For this demo, we'll just show a success message
+      
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const subject = document.getElementById('subject').value;
+      const message = document.getElementById('message').value;
+      
+      if (name && email && subject && message) {
+        // Form is valid
+        unlockAchievement('contact_form');
+        addXp(25);
+        addScore(50);
+        
+        // Reset form
+        contactForm.reset();
+        
+        // Show success message
+        showNotification('MESSAGE SENT!', 'Your message has been sent successfully!');
+      }
+    }
+
+    // Initialize the application
+    function init() {
+      initGame();
+      initCounters();
+      
+      // Event listeners
+      window.addEventListener('scroll', handleScroll);
+      mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+      closeMenuBtn.addEventListener('click', toggleMobileMenu);
+      navLinks.forEach(link => link.addEventListener('click', smoothScroll));
+      contactForm.addEventListener('submit', handleFormSubmit);
+      
+      // Initial scroll check
+      handleScroll();
+    }
+
+    // Run initialization when DOM is loaded
+    document.addEventListener('DOMContentLoaded', init);
+  </script>
 </body>
 </html>
